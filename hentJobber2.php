@@ -48,6 +48,11 @@
             $html .= "</div>";
             $html .= "</div>";
             
+            //Dette er endringer i git branchen hentOppgaver_branch
+            if($counter % 2 == 0){
+                $html .= "</div>";
+            }
+            
             /*$row_array["ingen_jobber"] = false;
             $row_array["jobb_id"] = $row["jobb_id"];
             $row_array["beskrivelse"] = $row["beskrivelse"];
@@ -57,14 +62,12 @@
         }
     }
     else{
-        
+        $html = "<p>Det finnes ingen oppgaver å gjøre!</p>";
     }
-
-    array_push($return_arr,$row_array);
 
     mysqli_close($db);
 
-    echo json_encode($return_arr);
+    echo $html;
     
     /*echo "<br>";
     echo "<br>";
