@@ -46,6 +46,10 @@
             $html .= "";
             $html .= "";
             
+            if($counter % 2 == 0){
+                $html .= "</div>";
+            }
+            
         }
 
     
