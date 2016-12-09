@@ -37,16 +37,21 @@
             $html .= "<div class='col-xs-12 col-sm-6'>";
             $html .= "<div class='row'>";
             $html .= "<div class='col-xs-3 col-sm-3'>";
-            $html .= "<img class='img-thumbnail' src='img/oppvaskmaskin.png' height='100' width='100' alt='oppgaveBilde'>";
+            $html .= "<img class='img-thumbnail' src='img/".$row["bilde"]." height='100' width='100' alt='oppgaveBilde'>";
             $html .= "</div>";
             $html .= "<div class='col-xs-6 col-sm-6 text-center'>";
-            $html .= "<p class='oppgave-tekst'>Ta ut av oppvaskmaskinen og plasser innhold i skuffer og skap</p>";
+            $html .= "<p class='oppgave-tekst'>".$row["beskrivelse"]."</p>";
             $html .= "</div>";
             $html .= "<div class='col-xs-3 col-sm-3'>";
             $html .= "<button type='button' class='btn btn-default'>Ta oppgave</button>";
             $html .= "</div>";
             $html .= "</div>";
             $html .= "</div>";
+            
+            //Dette er endringer i git branchen hentOppgaver_branch
+            if($counter % 2 == 0){
+                $html .= "</div>";
+            }
             
             /*$row_array["ingen_jobber"] = false;
             $row_array["jobb_id"] = $row["jobb_id"];
@@ -57,15 +62,12 @@
         }
     }
     else{
-        $row_array["ingen_jobber"] = true; 
-        $row_array["melding"] = "Det finnes ingen tilgjengelige jobber";
+        $html = "<p>Det finnes ingen oppgaver å gjøre!</p>";
     }
-
-    array_push($return_arr,$row_array);
 
     mysqli_close($db);
 
-    echo json_encode($return_arr);
+    echo $html;
     
     /*echo "<br>";
     echo "<br>";
