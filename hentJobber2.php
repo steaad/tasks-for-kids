@@ -7,6 +7,7 @@
     $return_arr = array();
     $row_array = array();
     $counter = 0;
+    $html = "";
 
     //Spørring ledige jobber
     $sql = "SELECT 
@@ -37,7 +38,7 @@
             $html .= "<div class='col-xs-12 col-sm-6'>";
             $html .= "<div class='row'>";
             $html .= "<div class='col-xs-3 col-sm-3'>";
-            $html .= "<img class='img-thumbnail' src='img/".$row["bilde"]." height='100' width='100' alt='oppgaveBilde'>";
+            $html .= "<img class='img-thumbnail' src='img/".$row["bilde"]. "'"."height='100' width='100' alt='oppgaveBilde'>";
             $html .= "</div>";
             $html .= "<div class='col-xs-6 col-sm-6 text-center'>";
             $html .= "<p class='oppgave-tekst'>".$row["beskrivelse"]."</p>";

@@ -84,6 +84,10 @@ function hentDineJobber(){
     });
 }
 
+function meld(){
+    alert("Alert funksjon kjører!");
+}
+
 function hentDineJobber2(){
     $.ajax({
         url: "hentDineJobber2.php", 
@@ -94,9 +98,20 @@ function hentDineJobber2(){
         }});
 }
 
-function setButtonListeners(){
+function hentJobber2(){
+    $.ajax({
+        url: "hentJobber2.php", 
+        async: true, 
+        success: function(result){
+            $("#tilgjengeligeJobber").html(result);
+            //setButtonListeners();
+        }});
+}
+
+
+//function setButtonListeners(var tag, var func){
     
-    $('#dineJobber').find('button').click(jobbFerdig);
+    $(tag).find('button').click(func);
     
 }
 

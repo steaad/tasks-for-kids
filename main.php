@@ -27,7 +27,7 @@
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="logikk.js"></script>
+        <script src="js/jsLibrary.js"></script>
 
     </head>
 
@@ -65,18 +65,8 @@
                 <h2>Tilgjengelige jobber</h2>
 
                 <div class="container">
-
+                    <div id="tilgjengeligeJobber"></div>
                 </div>
-
-                <table id="tilgjengeligeJobber" class="jobbListe">
-                    <tr>
-                        <th></th>
-                        <th>Beskrivelse</th>
-                        <th>Verdi</th>
-                        <th>Opprettet dato</th>
-                    </tr>
-
-                </table>
 
                 <h2>Dine jobber</h2>
 
@@ -86,8 +76,9 @@
 
         <script>
             $(document).ready(function () {
-                hentJobber();
-                hentDineJobber2();
+                hentJobber2();
+                //hentDineJobber2();
+               
 
             });
         </script>
