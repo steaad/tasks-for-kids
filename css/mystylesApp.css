@@ -1,15 +1,18 @@
 .row-content {
-  margin: 0px auto;
-  padding: 50px 0px;
+  margin: 5px 5px;
+  /*padding: 10px 5px 10px;*/
 }
 
 .oppgave-tekst {
     font-family: sans-serif;
-    font-size: 16px;
-          
-        
+    font-size: 18px;       
 }
 
 .oppgave{
     margin-left: 15px;
+}
+
+.v-center {
+   display: flex;
+   align-items: center;
 }

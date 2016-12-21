@@ -18,14 +18,6 @@
 
         <title>Oppgaver i hjemmet</title>
 
-        <style>
-            .jobbListe th,
-            td {
-                padding: 15px;
-                text-align: left;
-            }
-        </style>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="js/jsLibrary.js"></script>
 
@@ -36,7 +28,7 @@
     </nav>
 
     <body onload="adminContent()">
-
+        <div class="container">
             <h1>Velkommen <span id="bruker"><?php echo $login_session_name; ?></span></h1>
             <h2><a href = "logout.php">Logg ut</a></h2>
 
@@ -63,16 +55,16 @@
                 </script>
 
                 <h2>Tilgjengelige jobber</h2>
-
-                <div class="container">
-                    <div id="tilgjengeligeJobber"></div>
-                </div>
+                
+                <div class="well" id="tilgjengeligeJobber"></div>
 
                 <h2>Dine jobber</h2>
 
                 <div id="dineJobber">
 
                 </div>
+                
+        </div>
 
         <script>
             $(document).ready(function () {

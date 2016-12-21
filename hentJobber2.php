@@ -36,7 +36,7 @@
             }
             
             $html .= "<div class='col-xs-12 col-sm-6'>";
-            $html .= "<div class='row'>";
+            $html .= "<div class='row row-content v-center'>";
             $html .= "<div class='col-xs-3 col-sm-3'>";
             $html .= "<img class='img-thumbnail' src='img/".$row["bilde"]. "'"."height='100' width='100' alt='oppgaveBilde'>";
             $html .= "</div>";

@@ -104,12 +104,12 @@ function hentJobber2(){
         async: true, 
         success: function(result){
             $("#tilgjengeligeJobber").html(result);
-            //setButtonListeners();
+            setButtonListeners("tilgjengeligeJobber", taJobb);
         }});
 }
 
 
-//function setButtonListeners(var tag, var func){
+function setButtonListeners(var tag, var func){
     
     $(tag).find('button').click(func);
     
