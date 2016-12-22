@@ -61,7 +61,9 @@
         ?>
         
         
-        
+        <svg height="100" width="100">
+              <circle cx="50" cy="50" r="20" stroke="black" stroke-width="1" fill="green" />
+        </svg>
     </div>
 </body>
 </html>

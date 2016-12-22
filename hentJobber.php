@@ -24,7 +24,6 @@
 
     $noRows = mysqli_num_rows($result);
 
-
     if ($noRows > 0){
         while ($row = mysqli_fetch_assoc($result)) {
             
@@ -34,14 +33,16 @@
             $row_array["verdi"] = $row["verdi"];
             $row_array["opprettet_dato"] = $row["opprettet_dato"];
             $row_array["bilde"] = $row["bilde"];
+            
+            array_push($return_arr,$row_array);
         }
     }
     else{
         $row_array["ingen_jobber"] = true; 
         $row_array["melding"] = "Det finnes ingen tilgjengelige jobber";
+        
+        array_push($return_arr,$row_array);
     }
-
-    array_push($return_arr,$row_array);
 
     mysqli_close($db);
 

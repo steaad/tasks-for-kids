@@ -47,22 +47,6 @@ function jobbFerdig(e){
     //e.stopPropagation();
 }
 
-function hentJobber(){
-    /* call the php page that has the php array which is json_encoded */
-    $.getJSON('hentJobber.php', function(data) {
-
-        /* data will hold the php array as a javascript object */
-        $.each(data, function(key, val) {
-
-            $('#tilgjengeligeJobber').append(
-                '<table id = "tilgjengeligeJobber" class = "jobbListe">\n'.
-                <tr id="' + key + '"><td><img src="img/' + val.bilde + '" alt="post" height="42" width="42"></td><td>' + val.beskrivelse + '</td><td>' + val.verdi + ' Kr</td><td>' + val.opprettet_dato + '</td><td><button id="' + val.jobb_id + '">Ta jobb!</button></td></tr>');
-
-            $("#" + val.jobb_id).click(taJobb);
-
-        });
-    });
-}
 
 function hentDineJobber(){
     /* call the php page that has the php array which is json_encoded */
