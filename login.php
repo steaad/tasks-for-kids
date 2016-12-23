@@ -36,50 +36,65 @@
     }
 ?>
 
-<html> 
-   <head>
-      <title>Login Page</title>
-      
-      <style type = "text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
-      
-   </head>
-   
-   <body bgcolor = "#FFFFFF">
-	
-      <div align = "center" style="margin-top:150px">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
-            </div>
-				
-         </div>
-			
-      </div>
+<html>
 
-   </body>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Steffen Aadnevik">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mystylesApp.css">
+    <!-- Custom styles for log in -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <title>Oppgaver i hjemmet</title>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jsLibrary.js"></script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+    <header class="jumbotron ">
+        <!-- Main component for a primary marketing message or call to action -->
+
+        <div class="container">
+            <div class="row row-header vertical-align">
+                <div class="col-xs-12 text-center">
+                    <h1>Velkommen til oppgaver i huset</h1>
+                    <p style="padding:10px;"></p>
+                    <p>Hjelp mamma og pappa med noen små jobber og bli belønnet</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <form class="form-signin" action="" method="post">
+            <h2 class="form-signin-heading"></h2>
+            <label for="brukernavn" class="sr-only">Brukernavn</label>
+            <input type="text" id="brukernavn" name="username" class="form-control" placeholder="Brukernavn" required autofocus>
+            <label for="inputPassword" class="sr-only">Passord</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Husk meg
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+            
+            <div id="login-error">
+                <?php echo $error; ?>
+            </div>
+        </form> 
+    </div>
+
+
+</body>
+
 </html>

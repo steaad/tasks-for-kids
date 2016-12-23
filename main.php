@@ -6,7 +6,6 @@
     <html>
 
     <head>
-        <meta charset="utf-8">
         <meta charset="UTF-8">
         <meta name="author" content="Steffen Aadnevik">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +22,16 @@
 
     </head>
 
-    <nav id="nav">
-
-    </nav>
-
     <body onload="adminContent()">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul id="brukerMeny" class="nav navbar-nav">
+                    <li class="active"><a href="#">Tilgjengelige oppgaver</a></li>
+                    <li><a href="#">Mine oppgaver</a></li>
+                    <li><a href="#">Ferdige oppgaver</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <h1>Velkommen <span id="bruker"><?php echo $login_session_name; ?></span></h1>
             <h2><a href = "logout.php">Logg ut</a></h2>
@@ -38,18 +42,40 @@
                     echo "<p id='rettigheter'>Voksen</p>";
                 }else echo "<p id='rettigheter'>Barn</p>"; 
             ?>
-
+                
                 <script>
+                    //Script for å generere meny for administrator
                     function adminContent() {
                         var rettigheter = document.getElementById("rettigheter").innerHTML;
 
                         if (rettigheter == "Voksen") {
 
-                            var nav = document.getElementById("nav");
+                            var nav = document.getElementById("brukerMeny");
+                            
+                            while (nav.hasChildNodes()) {
+                                nav.removeChild(nav.lastChild);
+                            }
+                            
+                            var liTag = document.createElement("li");
                             var aTag = document.createElement("a");
-                            aTag.setAttribute("href", "adminpage.php");
-                            aTag.innerHTML = "Administrere oppgaver";
-                            nav.appendChild(aTag);
+                            aTag.setAttribute("href", "");
+                            aTag.innerHTML = "Tilgjengelige oppgaver";
+                            liTag.appendChild(aTag);
+                            nav.appendChild(liTag);
+                            
+                            var liTag = document.createElement("li");
+                            var aTag = document.createElement("a");
+                            aTag.setAttribute("href", "");
+                            aTag.innerHTML = "Oppgaver til godkjenning";
+                            liTag.appendChild(aTag);
+                            nav.appendChild(liTag);
+                            
+                            var liTag = document.createElement("li");
+                            var aTag = document.createElement("a");
+                            aTag.setAttribute("href", "");
+                            aTag.innerHTML = "Legg til oppgaver";
+                            liTag.appendChild(aTag);
+                            nav.appendChild(liTag);
                         }
                     }
                 </script>

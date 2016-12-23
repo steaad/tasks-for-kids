@@ -3,6 +3,11 @@
   /*padding: 10px 5px 10px;*/
 }
 
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+
 .oppgave-tekst {
     font-family: sans-serif;
     font-size: 18px;       
@@ -15,4 +20,34 @@
 .v-center {
    display: flex;
    align-items: center;
+}
+
+.jumbotron {
+  margin: 0px auto;
+  padding: 30px 30px;
+  background: #045FB4;
+  color: floralwhite;
+}
+
+#login-error {
+    font-size:14px;
+    color:#cc0000;
+    margin-top:10px
+}
+
+.navbar-inverse {
+  background: #045FB4;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a {
+  background: #0B4A85;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background: #0B4A85;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: #0B4A85;
+  color: #ffffff;
 }
