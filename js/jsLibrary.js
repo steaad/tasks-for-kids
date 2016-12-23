@@ -32,7 +32,6 @@ function hentJobber() {
             
             counter++;
             
-
             //Oddetall
             if(counter % 2 != 0) {
                 rad = "rad"+counter;
@@ -63,7 +62,6 @@ function hentJobber() {
             $("#" + val.jobb_id).click(taJobb);
         });
         
-
         //Antall oppgaver i lista er ett oddetall. Må da 
         if(counter % 2 != 0) {
                 $('#tilgjengeligeJobber').append("</div>");
