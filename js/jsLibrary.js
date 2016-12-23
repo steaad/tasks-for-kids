@@ -32,7 +32,11 @@ function hentJobber() {
             
             counter++;
             
-            //Odde tall
+<<<<<<< HEAD
+            //Oddetall
+=======
+            //Oddetall
+>>>>>>> master
             if(counter % 2 != 0) {
                 rad = "rad"+counter;
                 $('#tilgjengeligeJobber').append("<div id='"+rad+"'"+" class='row'>");
@@ -62,6 +66,11 @@ function hentJobber() {
             $("#" + val.jobb_id).click(taJobb);
         });
         
+<<<<<<< HEAD
+        //Antall oppgaver i lista er ett oddetall. Må da 
+=======
+        //Antall oppgaver i lista er ett oddetall. Må da 
+>>>>>>> master
         if(counter % 2 != 0) {
                 $('#tilgjengeligeJobber').append("</div>");
         }
