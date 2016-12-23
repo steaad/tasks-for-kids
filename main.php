@@ -56,7 +56,7 @@
 
                 <h2>Tilgjengelige jobber</h2>
                 
-                <div class="well" id="tilgjengeligeJobber"></div>
+                <div class="" id="tilgjengeligeJobber"></div>
 
                 <h2>Dine jobber</h2>
 
@@ -70,8 +70,6 @@
             $(document).ready(function () {
                 hentJobber();
                 //hentDineJobber2();
-               
-
             });
         </script>
 

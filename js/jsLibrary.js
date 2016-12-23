@@ -4,13 +4,19 @@ function hentJobber2(){
         async: true, 
         success: function(result) {
             $("#tilgjengeligeJobber").html(result);
-            setButtonListeners();
+            setButtonListeners('#tilgjengeligeJobber', taJobb);
         }});
 }
 
-function setButtonListeners(){
+/*function setButtonListeners(){
     
     $("tilgjengeligeJobber").find('button').click(taJobb);
+    
+}*/
+
+function setButtonListeners(tag, func){
+    
+    $(tag).find('button').click(func);
     
 }
 
@@ -79,8 +85,7 @@ function taJobb(e) {
             console.log(data)
         },
     });*/
-    console.log("Knapp er trykket på!");
-    alert("Jobb id er " + jobb_id + " og bruker er " + bruker);
+    console.log(taJobbData);
 
     //e.stopPropagation();
 
