@@ -5,7 +5,7 @@
     session_start();
 
     $error = "";
-
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $db = openDbConnection();
@@ -14,7 +14,7 @@
         $myusername = mysqli_real_escape_string($db,$_POST['username']);
         $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
 
-        $sql = "SELECT bruker_id FROM bruker WHERE navn = '$myusername' and passord = '$mypassword'";
+        $sql = "SELECT bruker_id, administrator, totalt_opptjent FROM bruker WHERE navn = '$myusername' and passord = '$mypassword'";
         $result = mysqli_query($db,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -24,9 +24,17 @@
 
         if($count == 1) {
 
+            $_SESSION['administrator'] = $row['administrator'];
             $_SESSION['login_user'] = $myusername;
+            $_SESSION['opptjent'] = $row['totalt_opptjent'];
             
-            header("location: main.php");
+            if($_SESSION['administrator'] == 1){
+                header("location: main_admin.php");
+            }
+            else{
+                header("location: main.php");
+            }
+            
         }else {
             $error = "Ditt brukernavn eller passord er feil";
         }

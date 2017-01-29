@@ -5,6 +5,8 @@
     $db = openDbConnection();
 
     $user_check = $_SESSION["login_user"];
+    $opptjent = 135;//$_SESSION["opptjent"];
+
 
     $ses_sql = mysqli_query($db,"select * from bruker where navn = '$user_check'");
 

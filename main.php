@@ -1,104 +1,81 @@
 <?php 
-    include("config.php");
-    include("session.php"); 
-    
+    include( "config.php"); 
+    include( "session.php"); 
 ?>
-    <html>
+<html>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Steffen Aadnevik">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/mystylesApp.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Steffen Aadnevik">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mystylesApp.css">
 
-        <title>Oppgaver i hjemmet</title>
+    <title>Oppgaver i hjemmet</title>
 
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/jsLibrary.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsLibrary.js"></script>
 
-    </head>
+</head>
 
-    <body onload="adminContent()">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <ul id="brukerMeny" class="nav navbar-nav">
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav" id="brukerMeny" >
                     <li class="active"><a href="#">Tilgjengelige oppgaver</a></li>
-                    <li><a href="#">Mine oppgaver</a></li>
-                    <li><a href="#">Ferdige oppgaver</a></li>
+                    <li><a href="dineoppgaver.php">Mine oppgaver</a></li>
+                    <li><a href="ferdigeOppgaver.php">Ferdige oppgaver</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <p class="navbar-text userLogin-text">Logget inn som <span id="bruker"><?php echo $login_session_name; ?></span></p>
+                    </li>
+                    <li>
+                        <a class="btn" id="logoutBtn" href = "logout.php">
+                            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
                 </ul>
             </div>
-        </nav>
-        <div class="container">
-            <h1>Velkommen <span id="bruker"><?php echo $login_session_name; ?></span></h1>
-            <h2><a href = "logout.php">Logg ut</a></h2>
-
-            <?php 
-                //$admin_rights kommer fra session.php som er inkludert i toppen
-                if($admin_rights == 1) {
-                    echo "<p id='rettigheter'>Voksen</p>";
-                }else echo "<p id='rettigheter'>Barn</p>"; 
-            ?>
-                
-                <script>
-                    //Script for å generere meny for administrator
-                    function adminContent() {
-                        var rettigheter = document.getElementById("rettigheter").innerHTML;
-
-                        if (rettigheter == "Voksen") {
-
-                            var nav = document.getElementById("brukerMeny");
-                            
-                            while (nav.hasChildNodes()) {
-                                nav.removeChild(nav.lastChild);
-                            }
-                            
-                            var liTag = document.createElement("li");
-                            var aTag = document.createElement("a");
-                            aTag.setAttribute("href", "");
-                            aTag.innerHTML = "Tilgjengelige oppgaver";
-                            liTag.appendChild(aTag);
-                            nav.appendChild(liTag);
-                            
-                            var liTag = document.createElement("li");
-                            var aTag = document.createElement("a");
-                            aTag.setAttribute("href", "");
-                            aTag.innerHTML = "Oppgaver til godkjenning";
-                            liTag.appendChild(aTag);
-                            nav.appendChild(liTag);
-                            
-                            var liTag = document.createElement("li");
-                            var aTag = document.createElement("a");
-                            aTag.setAttribute("href", "");
-                            aTag.innerHTML = "Legg til oppgaver";
-                            liTag.appendChild(aTag);
-                            nav.appendChild(liTag);
-                        }
-                    }
-                </script>
-
-                <h2>Tilgjengelige jobber</h2>
-                
-                <div class="" id="tilgjengeligeJobber"></div>
-
-                <h2>Dine jobber</h2>
-
-                <div id="dineJobber">
-
-                </div>
-                
+        </div>
+    </nav>
+    <div class="container">
+       
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <p class="pSize_1">Hei <span id="bruker"><?php echo $login_session_name; ?></span></p>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <p class="pSize_1">Opptjent <span class="label label-default"><?php echo $opptjent." Kr"; ?></span></p>
+            </div>
         </div>
 
-        <script>
-            $(document).ready(function () {
-                hentJobber();
-                //hentDineJobber2();
-            });
-        </script>
+        <h2>Tilgjengelige oppgaver</h2>
 
-    </body>
+        <div class="" id="tilgjengeligeJobber"></div>
 
-    </html>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            hentJobber();
+            //hentDineJobber2();
+        });
+    </script>
+
+</body>
+
+</html>

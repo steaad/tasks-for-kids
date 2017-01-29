@@ -1,6 +1,5 @@
 .row-content {
-  margin: 5px 5px;
-  /*padding: 10px 5px 10px;*/
+  padding: 2px;
 }
 
 .row-header {
@@ -22,6 +21,12 @@
    align-items: center;
 }
 
+.v-center2 {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 .jumbotron {
   margin: 0px auto;
   padding: 30px 30px;
@@ -33,6 +38,11 @@
     font-size:14px;
     color:#cc0000;
     margin-top:10px
+}
+
+.userLogin-text {
+    margin-left: 15px;
+    
 }
 
 .navbar-inverse {
@@ -50,4 +60,8 @@
 .navbar-inverse .navbar-nav > .active > a:focus {
   background: #0B4A85;
   color: #ffffff;
+}
+
+.pSize_1 {
+    font-size: 5.0vw;
 }

@@ -15,6 +15,7 @@
                 oppgaver.verdi,
                 jobb.utført,
                 jobb.jobb_godkjent,
+                jobb.jobb_underkjent,
                 oppgaver.bilde
             FROM jobb
             INNER JOIN oppgaver
@@ -30,6 +31,7 @@
             $row_array["verdi"] = $row["verdi"];
             $row_array["utført"] = $row["utført"];
             $row_array["jobb_godkjent"] = $row["jobb_godkjent"];
+            $row_array["jobb_underkjent"] = $row["jobb_underkjent"];
             
             array_push($return_arr,$row_array);
         }
