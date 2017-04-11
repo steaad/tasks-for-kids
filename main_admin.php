@@ -58,7 +58,7 @@
                     <h4 class="modal-title">Lag ny jobb</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="leggTilJobb.php" method="post" class="form-horizontal" id="leggTilJobb" role="form">
+                    <form action="leggTilJobb.php" id="leggTilJobbSkjema" method="post" class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="oppgaver">Velg oppgave</label>
                             <div class="col-sm-10">
@@ -69,10 +69,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="date">Gyldig til</label>
+                            <label class="control-label col-sm-2" for="date">Frist til</label>
                             <div class="col-sm-10">
                                 <div class='input-group date' id='datetimepicker2'>
-                                    <input type='text' class="form-control" placeholder="date" />
+                                    <input type='text' name="dato" class="form-control" placeholder="date" />
                                     <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -80,8 +80,11 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Legg til</button>
+                            <div class="col-sm-offset-2 col-xs-5">
+                                <input type="submit" value="Legg til" class="btn btn-primary"/>
+                            </div>
+                            <div class="col-xs-5">
+                                <p id="leggTilStatus"></p>
                             </div>
                         </div>
                     </form>
@@ -94,15 +97,45 @@
     </div>
 
     <script>
+        //Modal vindu håndtering
         $(document).ready(function() {
             $("#addBtn").click(function() {
                 $("#addTaskModal").modal("toggle");
             });
 
-            $(function() {
-                $('#datetimepicker2').datetimepicker({
-                    locale: 'ru'
+            //Handling sending of form with ajax
+            $("#leggTilJobbSkjema").on("submit", function(){
+                var form = $(this),
+                    type = form.attr("method"),
+                    data = {};
+                
+                form.find("[name]").each(function(index, value){
+                    var input = $(this),
+                        name = input.attr("name"),
+                        value = input.val();
+                    
+                    data[name] = value;
                 });
+                
+                
+                
+                $.ajax({
+                    url : "leggTilJobb.php",
+                    type : type,
+                    data : data,
+                    success : function(response){
+                        $("#leggTilStatus").html("Ok! Jobb ble lagt til").css("color", "green");
+                        $("#leggTilStatus").fadeIn('fast').delay(2000).fadeOut('fast');
+                        clearForm("leggTilJobbSkjema");
+                    },
+                    Error : function(xhr, textStatus, errorThrown) {
+                        $("#leggTilStatus").html("Feilet! Jobb ble ikke lagt til").css("color", "red");;
+                        $("#leggTilStatus").fadeIn('fast').delay(2000).fadeOut('fast');
+                    }
+                    
+                });
+                
+                return false;
             });
 
         });

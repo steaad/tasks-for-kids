@@ -173,3 +173,7 @@ function godkjennJobb(e){
     });
 
 }
+
+function clearForm(id){
+    document.getElementById(id).reset();
+}
